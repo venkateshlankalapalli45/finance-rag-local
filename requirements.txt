@@ -1,1 +1,11 @@
-uv==0.11.26
+torch
+transformers
+sentence-transformers
+faiss-cpu
+lang chain
+pypdf
+tqdm
+pandas
+requests
+
+
