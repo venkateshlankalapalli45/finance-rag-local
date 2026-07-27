@@ -2,10 +2,9 @@ torch
 transformers
 sentence-transformers
 faiss-cpu
-lang chain
 pypdf
-tqdm
-pandas
+streamlit
+fastapi
+uvicorn
 requests
-
-
+tqdm

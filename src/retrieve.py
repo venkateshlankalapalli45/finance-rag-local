@@ -14,6 +14,7 @@ class LocalRetriever:
         # 1. Load the exact same local model used during ingestion
         print("Loading local embedding model...")
         self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        self.embedding_model = self.model
         
         # 2. Load the FAISS vector index
         if not os.path.exists(INDEX_PATH):
@@ -27,47 +28,45 @@ class LocalRetriever:
         print("Loading document text metadata...")
         with open(METADATA_PATH, "r", encoding="utf-8") as f:
             self.chunks = json.load(f)
+            self.chunks_metadata = self.chunks
+
+   # In src/retrieve.py
 
     def retrieve(self, query, k=3, doc_name_filter=None):
-        """
-        Converts the query to a vector and retrieves the top-k matches.
-        Optionally filters results to only include chunks from a specific document.
-        """
-        # If filtering, we look at more candidates initially to make sure we find matching document chunks
-        search_k = k * 15 if doc_name_filter else k
-        
-        # Convert string query to a vector
-        query_vector = self.model.encode([query], convert_to_numpy=True)
-        
-        # Search the FAISS index
-        distances, indices = self.index.search(query_vector, search_k)
-        
-        results = []
-        for rank, (idx, dist) in enumerate(zip(indices[0], distances[0])):
-            if idx < 0 or idx >= len(self.chunks):
-                continue
+        # 1. If a filter is provided, filter the corpus/metadata FIRST
+        if doc_name_filter:
+            # Match exact doc_name or loose substring match (e.g. WALMART_2023_10K)
+            candidate_indices = [
+                i for i, meta in enumerate(self.chunks)
+                if meta.get("doc_name") == doc_name_filter 
+                or doc_name_filter in meta.get("doc_name", "")
+                or doc_name_filter in meta.get("file_name", "")
+            ]
             
-            chunk_data = self.chunks[idx]
+            if not candidate_indices:
+                print(f"Warning: No chunks match the doc_name_filter: {doc_name_filter}")
+                return []
+
+            # Convert query to vector
+            query_vector = self.embedding_model.encode([query])
             
-            # Metadata filter matching
-            if doc_name_filter:
-                target = doc_name_filter.replace(".pdf", "").lower()
-                chunk_doc = chunk_data["doc_name"].replace(".pdf", "").lower()
-                if target != chunk_doc:
-                    continue
+            # Search FAISS or calculate cosine similarity ONLY on candidate_indices
+            # (Alternatively, retrieve top_k * 20 from FAISS and filter down to matching candidates)
+            matched_chunks = []
+            # Query FAISS with higher depth then filter down
+            distances, indices = self.index.search(query_vector, k=min(1000, self.index.ntotal))
             
-            results.append({
-                "rank": len(results) + 1,
-                "text": chunk_data["text"],
-                "doc_name": chunk_data["doc_name"],
-                "page": chunk_data["page"],
-                "similarity_score": float(dist)
-            })
-            
-            if len(results) >= k:
-                break
-            
-        return results
+            for idx in indices[0]:
+                if idx in candidate_indices:
+                    matched_chunks.append(self.chunks_metadata[idx])
+                    if len(matched_chunks) == k:
+                        break
+            return matched_chunks
+
+        # 2. Standard unfiltered retrieval (when doc_name_filter is None)
+        query_vector = self.embedding_model.encode([query])
+        distances, indices = self.index.search(query_vector, k=k)
+        return [self.chunks[i] for i in indices[0] if i < len(self.chunks)]
 
 def main():
     parser = argparse.ArgumentParser(description="Query the local FinanceBench database.")

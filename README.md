@@ -1,104 +1,143 @@
-# Local Financial RAG Pipeline with Metadata Routing
-### A Context-Constrained Question-Answering System Evaluated on FinanceBench
+# Local Financial RAG Pipeline
 
----
+A privacy-preserving, context-aware Retrieval-Augmented Generation (RAG) system for answering questions from financial filings using a fully local stack.
 
-## 👤 Author Information
-* **Author:** Sarvan Chattu
-* **Affiliation:** EPITA School of Engineering
-* **Program:** Master of Science in Data Science & Analytics
-* **Project Domain:** Natural Language Processing (NLP) / Information Retrieval
+## Overview
 
----
+This project builds a local question-answering pipeline for corporate financial documents such as 10-K and 10-Q reports. Instead of relying on external APIs, it combines:
 
-## 📖 Executive Summary
-This project implements a fully local, privacy-compliant, and context-constrained **Retrieval-Augmented Generation (RAG)** pipeline designed to answer complex financial questions using corporate filings (10-K and 10-Q documents). Financial documents present unique NLP challenges due to high term similarity across fiscal years, which frequently causes standard vector databases to retrieve incorrect historical periods.
+- PDF ingestion and document parsing
+- Text chunking and embedding generation
+- FAISS-based vector search
+- Metadata-aware retrieval to restrict answers to the requested document
+- A local LLM for grounded answer generation
 
-To address this, we developed a RAG pipeline utilizing a local dense retriever, metadata-based routing to isolate documents by year, and a quantized local Large Language Model (LLM) for hallucination-free answer generation. The system was systematically evaluated on the **FinanceBench** golden dataset, demonstrating that increasing the retrieval parameter $k$ from $3$ to $5$ yielded a **22.2% relative improvement** in lexical overlap accuracy.
+The goal is to provide factual, source-based responses for financial questions while keeping the workflow private and fully local.
 
----
+## Key Features
 
-## 🗺️ System Workflow
+- Fully local document processing and inference
+- Metadata-based routing for more accurate document-specific retrieval
+- Context-constrained generation to reduce hallucinations
+- Support for CLI-based querying, API access, and a Streamlit web app
+- Evaluation support for measuring answer quality against benchmark questions
 
-Below is the structured, end-to-end processing pipeline showing how data flows from unstructured annual reports into cited financial answers:
+## Project Architecture
 
-| Stage | Data Input | Core Processing Unit | Output Data / State |
-| :--- | :--- | :--- | :--- |
-| **1. Extraction** | Raw PDF Corporate Files (`data/raw_pdfs/`) | **PyPDF Reader Engine** <br> └─ Parses stream, sanitizes encoding errors | Plain Text Streams |
-| **2. Chunking** | Raw Text Streams | **750-Char Sliding Window** <br> └─ Applies a 75-character overlap safety net | Text Passage Chunks |
-| **3. Vectorization** | Text Passage Chunks | **all-MiniLM-L6-v2 Model** <br> └─ Dense 384-dimensional vector encoding | High-Dimensional Embeddings |
-| **4. Storage** | Dense Embeddings & Text Mapping | **FAISS CPU Database** <br> └─ Compiles Flat L2 index to disk | `faiss_index.index` & `chunks_metadata.json` |
-| **5. Routing** | Evaluator Query & Document String | **Metadata-Routed Filter** <br> └─ Forces retrieval *only* inside targeted file | Screened Context Chunks ($k$) |
-| **6. Generation** | Question + Screened Context Chunks | **Qwen-2.5-1.5B Local LLM** <br> └─ Context-constrained deterministic inference | **Factual Cited Answer** (with Page Citations) |
+1. Data ingestion
+   - Downloads and parses financial PDF files
+   - Extracts text and creates document chunks
 
----
+2. Embedding and indexing
+   - Converts chunk text into dense vector embeddings
+   - Stores them in a FAISS index for fast similarity search
 
-### 🔍 Deep-Dive: Workflow Path Execution
+3. Retrieval and generation
+   - Retrieves relevant chunks using semantic search
+   - Uses a local LLM to generate answers grounded in the retrieved context
 
-> **Data Preparation Phase (Offline Ingest)**
-> `Raw PDF` ➔ `Text Extraction` ➔ `750/75 Sliding-Window Split` ➔ `Dense Embeddings` ➔ `FAISS Index Compiled`
+4. Evaluation
+   - Measures answer overlap against benchmark expected answers
 
-> **Real-time Query Resolution Phase (Online Inference)**
-> `User Query` ➔ `Metadata Filter Route (Targets Document)` ➔ `Vector Search` ➔ `Injected Context` ➔ `Strict Local LLM Inference` ➔ `Factual cited answer`
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```text
-nlp_project/
+.
 ├── data/
-│   ├── raw_pdfs/                            # Directory containing downloaded 10-K & 10-Q PDFs
-│   ├── financebench_document_information.jsonl # Complete corpus metadata
-│   ├── financebench_open_source.jsonl       # Golden evaluation dataset
-│   ├── faiss_index.index                    # Compiled L2-normalized vector database
-│   ├── chunks_metadata.json                 # JSON store containing chunk texts and doc metadata
-│   └── evaluation_results.json              # Dumped evaluation metrics of the pipeline run
+│   ├── raw_pdfs/
+│   ├── financebench_open_source.jsonl
+│   ├── financebench_document_information.jsonl
+│   ├── faiss_index.index
+│   ├── chunks_metadata.json
+│   └── evaluation_results.json
 ├── src/
-│   ├── downloads_pdfs.py                    # Multi-threaded robust PDF acquisition script
-│   ├── ingest.py                            # PDF extraction, sliding-window chunking, and FAISS creation
-│   ├── retrieve.py                          # Vector similarity search engine with metadata filtering
-│   ├── generate.py                          # Context-constrained local LLM generation module
-│   └── evaluate.py                          # Pipeline-wide evaluation harness comparing against ground truth
-├── venv/                                    # Local Python virtual environment
-└── README.md                                # Comprehensive Project Documentation & Scientific Report
+│   ├── downloads_pdfs.py
+│   ├── ingest.py
+│   ├── retrieve.py
+│   ├── generate.py
+│   ├── evaluate.py
+│   ├── api.py
+│   └── app.py
+├── requirements.txt
+└── README.md
+```
 
-🚀 Installation & Setup
-Ensure you are using Python 3.10+ (tested with Python 3.12.6 inside a virtual environment).
+## Installation
 
-1. Activate Virtual Environment Open your terminal inside the project directory and run:
-On Windows (PowerShell):PowerShell
-.\venv\Scripts\Activate.ps1
+Make sure you are using Python 3.10 or newer.
 
-2. Install Dependencies:
+Install the required dependencies:
 
-Install all required libraries including text processing, vector indexing, and local LLM orchestration:Bashpip install requests tqdm pypdf faiss-cpu sentence-transformers transformers torch accelerate
+```bash
+pip install torch transformers sentence-transformers faiss-cpu pypdf streamlit fastapi uvicorn requests tqdm
+```
 
-⚙️ Detailed Pipeline Stages
+## Usage
 
-Step 1: PDF Acquisition (src/downloads_pdfs.py)Acquires the exact PDFs listed in the SEC EDGAR registries used for the evaluation suite. Includes browser headers and stream timeout fallbacks to bypass rate-limiting blocks.Bashpython src/downloads_pdfs.py
+### 1. Download financial PDFs
 
-Step 2: Document Ingestion (src/ingest.py)Scans the required documents in the evaluation dataset to avoid indexing unnecessary files. It strips text, applies a sliding window chunking scheme (750-character chunks with a 75-character overlap), generates 384-dimensional dense vectors using all-MiniLM-L6-v2, and compiles a CPU-optimized Flat L2 FAISS index.Bashpython src/ingest.py
+```bash
+python src/downloads_pdfs.py
+```
 
-Step 3: Similarity Retrieval with Routing (src/retrieve.py)Retrieves candidate passages. It implements a Metadata Router which forces the search to look only inside the target document specified by the user or evaluation prompt (e.g., matching only WALMART_2020_10K). This prevents temporal leakage across fiscal years.To test retrieval via command line:Bashpython src/retrieve.py --query "What is the total revenue of Walmart?" --doc "WALMART_2020_10K" --k 3
+### 2. Build the vector index
 
-Step 4: Context-Constrained Generation (src/generate.py)Orchestrates the local generation engine utilizing the highly efficient Qwen/Qwen2.5-1.5B-Instruct model. The LLM is restricted via system prompting to never hallucinate beyond the retrieved evidence snippets and must cite document page numbers.To run a targeted generation query:Bashpython src/generate.py --query "What was the total revenue of Walmart in 2020?" --doc "WALMART_2020_10K" --k 3
+```bash
+python src/ingest.py
+```
 
-Step 5: Evaluation Loop (src/evaluate.py)The evaluation framework parses test items from the golden test set, processes them through our metadata-routed retriever, invokes the generator, and computes word-level lexical overlap similarity scores against golden answers.Bashpython src/evaluate.py --limit 10 --k 3
+### 3. Run retrieval manually
 
-📊 Experimental Results & Parameter Tuning:
+```bash
+python src/retrieve.py --query "What is the total revenue of Walmart?" --doc "WALMART_2020_10K" --k 3
+```
 
-To evaluate the performance of our local financial RAG pipeline, we ran comparative experiments on a subset of 10 sequential complex evaluation records from FinanceBench. We isolated the retrieval parameter $k$ (number of retrieved context chunks) as our primary independent variable.
-Performance Summary Table
-Metric / Parameter  Configuration 1 (k=3)  Configuration 2 (k=5)Relative VarianceTop-k Passages ($k$)35+66.7%Text Chunk size750 characters750 characters-Overlap Size75 characters75 characters-Local LLM ModelQwen2.5-1.5B-InstructQwen2.5-1.5B-Instruct-Average Overlap Score0.15100.1846+22.25% (Improvement)Avg Processing Time / Query~78.8 seconds~93.3 seconds+18.4% (Latency Cost)
+### 4. Generate an answer with the local LLM
 
-Analysis of Results:
+```bash
+python src/generate.py --query "What was the total revenue of Walmart in 2020?" --doc "WALMART_2020_10K" --k 3
+```
 
-Accuracy Improvement: Moving from k=3 to k=5 significantly improved the Average Overlap Score. The extra 2 chunks provided more detailed tables and supporting text, allowing the local LLM to capture exact terminology match ratios against the ground truth answers.
+### 5. Evaluate the pipeline
 
-Latency Tradeoff: The 22.2% accuracy improvement comes with an 18.4% increase in inference time. On a standard CPU-bound environment, feeding longer contexts into local autoregressive generation sequences linearly increases computation cycles.
+```bash
+python src/evaluate.py --limit 10 --k 3
+```
 
- Error Analysis & Hardening: 
- During testing, two major structural failure points were identified and fixed:
- 
- 1. The "Cross-Year Collision" ProblemObservation: When asking a general query without document-level routing (e.g., "What is Walmart's total revenue in 2023?"), vector-only search retrieved pages from WALMART_2018_10K because the phrasing was identical.Mitigation: Built the custom Metadata Router inside retrieve.py which filters vectors using the strict parent document string. This eliminated temporal collisions.2. The "Missing File" ChallengeObservation: If a file was not part of the current evaluation split or failed to download due to remote host timeout (e.g., WALMART_2023_10K), raw vector query operations would fail or yield unrelated documents.Mitigation: Implemented a pre-retrieval validation hook. If a target file contains no indexed vectors, the pipeline intercepts execution safely and prints a diagnostic warning, preventing LLM hallucinations.🔮 Conclusion & Future WorkThis project demonstrates that standard consumer-grade computer hardware can effectively run a highly accurate, private, and fully local financial analyst agent.
+### 6. Start the API server
+
+```bash
+uvicorn src.api:app --reload
+```
+
+### 7. Launch the web app
+
+```bash
+streamlit run src/app.py
+```
+
+## Example Workflow
+
+- Load financial documents from the local data folder
+- Create text chunks from each PDF page
+- Convert chunks into embeddings
+- Retrieve the most relevant passages for a question
+- Generate a grounded answer with source context
+
+## Evaluation
+
+The evaluation pipeline compares generated answers with expected benchmark answers using a simple overlap-based score. This helps measure the effectiveness of the retrieval strategy and the quality of the generated response.
+
+## Notes
+
+- The first run may download the embedding model and local LLM weights, which can take some time.
+- GPU support is optional but can significantly improve performance.
+- The metadata filter helps reduce retrieval mistakes across different fiscal years.
+
+## Author
+
+Created by venkatesh lankalapalli and Nishanth singh.
+
+## License
+
+This project is intended for educational and research purposes.
