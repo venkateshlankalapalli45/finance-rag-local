@@ -1,0 +1,289 @@
+{
+    "parameters": {
+        "k": 5,
+        "limit": 35
+    },
+    "average_score": 0.2613723500777398,
+    "results": [
+        {
+            "doc_name": "3M_2018_10K",
+            "question": "What is the FY2018 capital expenditure amount (in USD millions) for 3M? Give a response to the question by relying on the details shown in the cash flow statement.",
+            "expected_answer": "$1577.00",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the text:\n\n1. The table of contents mentions \"2019 capital spending\" at approximately $1.7 billion to $1.9 billion.\n\n2. The text states: \"3M invests in renewal and maintenance programs, which pertain to cost reduction, cycle time, maintaining and renewing current capacity, eliminating pollution, and compliance.\"\n\n3. It further specifies: \"Costs related to maintenance, ordinary repairs, and certain other items are expensed.\"\n\nGiven these points, we can infer that the capital expenditures mentioned in the text likely refer to the costs associated with maintenance and other expenses rather than direct investments in property, plant, and equipment. However, without specific figures for each category, we cannot determine the exact FY2018 capital expenditure amount directly from the provided text alone.\n\nTo accurately calculate the FY2018 capital expenditure amount, one would need additional detailed financial data specifically broken down into categories like maintenance, ordinary repairs, etc., which isn't available in the given text snippets. Therefore, based solely on the information provided, I cannot definitively state the FY2018 capital expenditure amount for 3M.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "3M_2018_10K",
+            "question": "Assume that you are a public equities analyst. Answer the following question by primarily using information that is shown in the balance sheet: what is the year end FY2018 net PPNE for 3M? Answer in USD billions.",
+            "expected_answer": "$8.70",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the balance sheet, the Year End FY2018 Net PP&E for 3M is $542 million.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "3M_2022_10K",
+            "question": "Is 3M a capital-intensive business based on FY2022 data?",
+            "expected_answer": "No, the company is managing its CAPEX and Fixed Assets pretty efficiently, which is evident from below key metrics:\nCAPEX/Revenue Ratio: 5.1%\nFixed assets/Total Assets: 20%\nReturn on Assets= 12.4%",
+            "evidence_text": null,
+            "generated_answer": "Yes, according to the text, 3M is described as a \"diversified global manufacturer, technology innovator and marketer\" that makes investments in property, plant and equipment to increase manufacturing efficiency and align product capability with sales in major geographic areas. This indicates that 3M is indeed a capital-intensive business.",
+            "overlap_score": 0.10714285714285714
+        },
+        {
+            "doc_name": "3M_2022_10K",
+            "question": "What drove operating margin change as of FY2022 for 3M? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+            "expected_answer": "Operating Margin for 3M in FY2022 has decreased by 1.7% primarily due to: \n-Decrease in gross Margin\n-mostly one-off charges including Combat Arms Earplugs litigation, impairment related to exiting PFAS manufacturing, costs related to exiting Russia and divestiture-related restructuring\ncharges",
+            "evidence_text": null,
+            "generated_answer": "The text states that effective in the first quarter of 2022, 3M made changes to the measure of segment operating performance used by its chief operating decision maker, which impacted 3M's disclosed measure of segment profit/loss (business segment operating income). This change aligned with the update to how the CODM assesses performance and allocates resources for the Company's business segments.\n\nHowever, it is noted that \"operating margin\" is not a useful metric for a company like 3M because:\n\n- Operating margin is calculated differently across companies due to variations in accounting practices and industry-specific metrics.\n- It may not provide insight into the core profitability or efficiency of a company's operations.\n- It can be misleading if not interpreted within the broader context of the company's financial health and strategic goals.\n\nTherefore, while operating margin might be an important indicator for some companies, it is less relevant for 3M given their diverse product offerings and complex business structure.",
+            "overlap_score": 0.2647058823529412
+        },
+        {
+            "doc_name": "3M_2022_10K",
+            "question": "If we exclude the impact of M&A, which segment has dragged down 3M's overall growth in 2022?",
+            "expected_answer": "The consumer segment shrunk by 0.9% organically.",
+            "evidence_text": null,
+            "generated_answer": "Based on the provided text, it appears that the \"Health Care\" segment may have contributed negatively to 3M's overall growth in 2022. The passage mentions that \"Research, Development and Related Expenses:\" increased due to higher investments in health care-related research and development activities. Additionally, the \"Gain on Business Divestitures:\" item shows a significant positive impact of approximately $2.7 billion, likely related to the sale or divestment of a business unit within the Health Care segment. This suggests that the Health Care segment might have been one of the areas driving up costs or losses rather than contributing positively to profitability or growth. However, without more specific details about each segment's contribution to the overall company performance, this conclusion is based on an assumption and would require further analysis.",
+            "overlap_score": 0.2857142857142857
+        },
+        {
+            "doc_name": "3M_2023Q2_10Q",
+            "question": "Does 3M have a reasonably healthy liquidity profile based on its quick ratio for Q2 of FY2023? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+            "expected_answer": "No. The quick ratio for 3M was 0.96 by Jun'23 close, which needs a bit of an improvement to touch the 1x mark",
+            "evidence_text": null,
+            "generated_answer": "Based on the provided text, 3M has a reasonably healthy liquidity profile for Q2 of FY2023. The text states:\n\n\"The strength of 3M’s credit profile and significant ongoing cash flows provide 3M proven access to capital markets.\"\n\nThis indicates that 3M has a strong ability to access capital markets, which suggests a healthy liquidity position. However, without specific details about the quick ratio or any other measures of liquidity, we cannot determine whether the quick ratio is within a reasonable range. To accurately assess the health of 3M's liquidity profile, one would need to calculate and compare the quick ratio against industry standards or benchmarks.",
+            "overlap_score": 0.4090909090909091
+        },
+        {
+            "doc_name": "3M_2023Q2_10Q",
+            "question": "Which debt securities are registered to trade on a national securities exchange under 3M's name as of Q2 of 2023?",
+            "expected_answer": "Following debt securities registered under 3M's name are listed to trade on the New York Stock Exchange:\n-1.500% Notes due 2026 (Trading Symbol: MMM26)\n-1.750% Notes due 2030 (Trading Symbol: MMM30)\n-1.500% Notes due 2031 (Trading Symbol: MMM31)",
+            "evidence_text": null,
+            "generated_answer": "Based on the provided text, there is no specific mention of which debt securities 3M's name is registered to trade on a national securities exchange as of Q2 of 2023. The text only states that 3M has a credit rating of A2, negative outlook from Moody's Investors Service, and a credit rating of A-, CreditWatch negative from S&P Global Ratings. It also mentions that the company's total debt at June 30, 2023 was consistent when compared to December 31, 2022, but it doesn't specify what types of debt securities this refers to or if they are traded on exchanges. Therefore, I cannot find the answer in the provided documents.",
+            "overlap_score": 0.3448275862068966
+        },
+        {
+            "doc_name": "3M_2023Q2_10Q",
+            "question": "Does 3M maintain a stable trend of dividend distribution?",
+            "expected_answer": "Yes, not only they distribute the dividends on a routine basis, 3M has also been increasing the per share dividend for consecutive 65 years",
+            "evidence_text": null,
+            "generated_answer": "Yes, according to the text, 3M has maintained a stable trend of increasing dividends over the years. It states \"This marked the 65th consecutive year of dividend increases for 3M.\"",
+            "overlap_score": 0.43478260869565216
+        },
+        {
+            "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+            "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+            "expected_answer": "24.26",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "ACTIVISIONBLIZZARD_2019_10K",
+            "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+            "expected_answer": "1.9%",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "ADOBE_2015_10K",
+            "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+            "expected_answer": "0.66",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "ADOBE_2016_10K",
+            "question": "What is Adobe's year-over-year change in unadjusted operating income from FY2015 to FY2016 (in units of percents and round to one decimal place)? Give a solution to the question by using the income statement.",
+            "expected_answer": "65.4%",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "ADOBE_2017_10K",
+            "question": "What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.",
+            "expected_answer": "0.83",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "ADOBE_2022_10K",
+            "question": "Does Adobe have an improving operating margin profile as of FY2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+            "expected_answer": "No the operating margins of Adobe have recently declined from 36.8% in FY 2021 to 34.6% in FY2022. A drop by 2.2% in a year.",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.13636363636363635
+        },
+        {
+            "doc_name": "ADOBE_2022_10K",
+            "question": "Does Adobe have an improving Free cashflow conversion as of FY2022?",
+            "expected_answer": "Yes, the FCF conversion (using net income as the denominator) for Adobe has improved by ~13% from 143% in 2021 to 156% in 2022",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.13636363636363635
+        },
+        {
+            "doc_name": "AES_2022_10K",
+            "question": "What is the quantity of restructuring costs directly outlined in AES Corporation's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+            "expected_answer": "0",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text, there is no explicit mention of any restructuring costs or restructuring expenses that were directly outlined in AES Corporation's income statements for the fiscal year ending December 31, 2022. Therefore, the answer is:\n\n0",
+            "overlap_score": 1.0
+        },
+        {
+            "doc_name": "AES_2022_10K",
+            "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+            "expected_answer": "AES has converted inventory 9.5 times in FY 2022.",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text, there is no specific mention of inventory sales or inventory turnover ratios for AES Corporation's fiscal year 2022. Therefore, I cannot calculate an exact inventory turnover ratio for FY2022 using this data alone. Additionally, the text states \"conventional inventory management is not meaningful for the company,\" which implies that traditional methods like inventory turnover might not be applicable or relevant for AES Corporation. This could be due to various factors such as unique business models, supply chain complexities, or other operational challenges faced by the company. Without more detailed financial metrics or additional context about their inventory management practices, it's difficult to provide a precise calculation or alternative method for assessing inventory performance.",
+            "overlap_score": 0.4444444444444444
+        },
+        {
+            "doc_name": "AES_2022_10K",
+            "question": "Based on the information provided primarily in the statement of financial position and the statement of income, what is AES's FY2022 return on assets (ROA)? ROA is defined as: FY2022 net income / (average total assets between FY2021 and FY2022). Round your answer to two decimal places.",
+            "expected_answer": "-0.02",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the statement of financial position and the statement of income, AES's FY2022 Return on Assets (ROA) can be calculated using the formula:\n\n\\[ \\text{Return on Assets} = \\frac{\\text{Net Income}}{\\text{Average Total Assets}} \\]\n\nFrom the given data:\n\n- Net Income for FY2022: $-546 million\n- Average Total Assets for FY2021 and FY2022: ($\\frac{(240 + 321)}{2}$) = $280.5 million\n\nSo,\n\n\\[ \\text{ROA} = \\frac{-546}{280.5} \\approx -1.95 \\]\n\nTherefore, AES's FY2022 Return on Assets (ROA) was approximately -1.95%.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMAZON_2017_10K",
+            "question": "What is Amazon's FY2017 days payable outstanding (DPO)? DPO is defined as: 365 * (average accounts payable between FY2016 and FY2017) / (FY2017 COGS + change in inventory between FY2016 and FY2017). Round your answer to two decimal places. Address the question by using the line items and information shown within the balance sheet and the P&L statement.",
+            "expected_answer": "93.86",
+            "evidence_text": null,
+            "generated_answer": "To calculate Amazon's Days Payable Outstanding (DPO) for FY2017:\n\n1. **Average Accounts Payable**: \n   - FY2016: $25,309 million\n   - FY2017: $43,816 million\n   - Average = ($25,309 + $43,816) / 2 = $34,562.5 million\n\n2. **Cost of Goods Sold (COGS)**:\n   - FY2016: $2,371 million\n   - FY2017: $3,033 million\n   - COGS average = ($2,371 + $3,033) / 2 = $2,652 million\n\n3. **Change in Inventory**:\n   - FY2016: $1,426 million\n   - FY2017: $2,187 million\n   - Change in inventory = $2,187 - $1,426 = $761 million\n\nNow, plug these values into the formula:\n\nDays Payable Outstanding (DPO) = 365 * (average accounts payable) / (COGS + change in inventory)\n= 365 * ($34,562.5 million) / ($2,652 million + $761 million)\n≈ 365 * $34,562.5 / $3,413\n≈ 365 * 10.23\n≈ 375.34 days\n\nTherefore, Amazon's Days Payable Outstanding (DPO) for FY2017 was approximately 375.34 days.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMAZON_2017_10K",
+            "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+            "expected_answer": "30.8%",
+            "evidence_text": null,
+            "generated_answer": "To calculate the year-over-year change in revenue from FY2016 to FY2017:\n\n1. Identify the relevant figures from the statement of operations.\n   - Revenue for FY2016: $4,186 million\n   - Revenue for FY2017: $4,106 million\n\n2. Subtract the FY2016 figure from the FY2017 figure.\n   $4,106 million - $4,186 million = -$80 million\n\n3. Divide the difference by the FY2016 figure.\n   -$80 million / $4,186 million ≈ -0.19%\n\nTherefore, Amazon's revenue decreased by approximately 1.9% from FY2016 to FY2017.\n\nNote: The negative sign indicates a decrease in revenue.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMAZON_2019_10K",
+            "question": "By drawing conclusions from the information stated only in the income statement, what is Amazon's FY2019 net income attributable to shareholders (in USD millions)?",
+            "expected_answer": "$11588.00",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the income statement, Amazon's FY2019 net income attributable to shareholders was $14,541 million. This can be determined from the \"Consolidated Statements of Operations\" section which shows total net sales of $280,522 million and operating income of $14,541 million.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMCOR_2020_10K",
+            "question": "What is Amcor's year end FY2020 net AR (in USD millions)? Address the question by adopting the perspective of a financial analyst who can only use the details shown within the balance sheet.",
+            "expected_answer": "$1616.00",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text, Amcor's year-end FY2020 net accounts receivable was $1,615.9 million. This figure can be directly extracted from the \"Consolidated Balance Sheet\" section of the provided text, which states: \"Trade receivables, net $ 1,615.9 1,864.3 .\"",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMCOR_2022_8K_dated-2022-07-01",
+            "question": "What was the key agenda of the AMCOR's 8k filing dated 1st July 2022?",
+            "expected_answer": "Amcor Finance (USA), Inc. and Amcor Flexibles North America, Inc., entered into supplemental indentures relating to Guaranteed Senior Notes due 2026 and 2028. This involved the substitution of the Substitute Issuer (Amcor Flexibles North America) for the Former Issuer (Amcor Finance) and the assumption of covenants under the indentures. (In essence a novation agreement)",
+            "evidence_text": null,
+            "generated_answer": "The key agenda of the AMCOR's 8K filing dated 1st July 2022 included:\n\n1. The indentures related to the issuance of bonds for $1 billion were incorporated by reference into the company's registration statement on Form S-4.\n\n2. The second supplemental indenture was also incorporated by reference into the current report on Form 8-K.\n\n3. The first supplemental indenture was incorporated by reference into the same current report on Form 8-K.\n\nThese filings likely addressed the details of bond issuances and their terms, which would be crucial information for investors and stakeholders regarding the company's capital structure and future financing plans.",
+            "overlap_score": 0.19047619047619047
+        },
+        {
+            "doc_name": "AMCOR_2023_10K",
+            "question": "Has AMCOR's quick ratio improved or declined between FY2023 and FY2022? If the quick ratio is not something that a financial analyst would ask about a company like this, then state that and explain why.",
+            "expected_answer": "The quick ratio has slightly improved from 0.67 times to 0.69 times between FY 2023 and FY 2022.(3.4% jump)",
+            "evidence_text": null,
+            "generated_answer": "Based on the provided text, there is no mention of AMCOR's quick ratio. Therefore, I cannot determine whether the quick ratio has improved or declined between FY2023 and FY2022 based solely on the given context. The text focuses on revenue growth, operating income, and other financial metrics but does not include any information about liquidity ratios such as the quick ratio.",
+            "overlap_score": 0.4117647058823529
+        },
+        {
+            "doc_name": "AMCOR_2023_10K",
+            "question": "What are major acquisitions that AMCOR has done in FY2023, FY2022 and FY2021?",
+            "expected_answer": "Amcor completed these acquisitions during FY2023:\n-100% equity interest of a flexibles manufacturing company in the Czech Republic\n- 100% equity interest in a medical device packaging manufacturing site in\nShanghai, China.\n-acquisition of a New Zealand-based leading manufacturer of state-of-the-art, automated protein\npackaging machines.",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text:\n\n- **FY2023**: No specific acquisitions mentioned.\n\n- **FY2022**: The text mentions \"We also may face challenges in integrating acquisitions with our existing operations.\" However, it does not provide details about individual acquisitions made in FY2022.\n\n- **FY2021**: The text states \"Amcor operates in over forty different jurisdictions with a wide range,\" but no specific acquisitions are listed for FY2021.\n\nFor more detailed information about acquisitions in FY2023, FY2022, and FY2021, further research would be needed beyond the provided text.",
+            "overlap_score": 0.14285714285714285
+        },
+        {
+            "doc_name": "AMCOR_2023_10K",
+            "question": "What industry does AMCOR primarily operate in?",
+            "expected_answer": "Amcor is a global leader in packaging production for various use cases.",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text, AMCOR primarily operates in the packaging industry. This can be inferred from the description stating that the Company is a global leader in developing and producing responsible packaging for various consumer goods end markets, including food, beverage, pharmaceutical, medical, home, and personal-care products. Additionally, the text mentions that sustainability is central to the Company's operations, further emphasizing its focus on this sector.",
+            "overlap_score": 0.75
+        },
+        {
+            "doc_name": "AMCOR_2023_10K",
+            "question": "Does AMCOR have an improving gross margin profile as of FY2023? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+            "expected_answer": "No. For AMCOR there has been a slight decline in gross margins by 0.8%.",
+            "evidence_text": null,
+            "generated_answer": "Yes, AMCOR has an improving gross margin profile as of FY2023.\n\nThe text states: \"Excluding the pass-through of raw material costs of $776 million, negative currency impacts of $426 million, and the negative impact of disposed and ceased operations of $207 million, the remaining variation in net sales for the fiscal year 2023 was an increase of $7 million, or 0%, reflecting price/mix benefits of 3% and unfavorable mix.\"\n\nThis indicates that despite some negative factors affecting net sales, there were also positive price/mix benefits which contributed to an improvement in the gross margin. The gross margin improved from 8.5% in 2022 to 10.3% in 2023, showing a trend towards better profitability.",
+            "overlap_score": 0.5
+        },
+        {
+            "doc_name": "AMCOR_2023Q2_10Q",
+            "question": "What is the nature & purpose of AMCOR's restructuring liability as oF Q2 of FY2023 close?",
+            "expected_answer": "87% of the total restructuring liability is related Employee liabilities.",
+            "evidence_text": null,
+            "generated_answer": "The nature and purpose of AMCOR's restructuring liability as of Q2 of FY2023 close can be understood through the following points:\n\n1. **Nature**: The restructuring liability includes various components such as employee costs, fixed asset-related costs, and other costs.\n\n2. **Purpose**: The primary purpose of these liabilities is to reflect the estimated future cash outflows associated with planned restructuring activities. These activities were initiated in response to the Russia-Ukraine conflict, which had significant economic implications for the company.\n\n3. **Components**:\n   - **Employee Costs**: Reflects the anticipated costs related to workforce reductions or changes due to the conflict.\n   - **Fixed Asset-Related Costs**: Includes depreciation and amortization of assets used in restructuring efforts.\n   - **Other Costs**: Covers miscellaneous expenses directly linked to the restructuring process.\n\n4. **Balance Sheet Presentation**: As of December 31, 2022, the total restructuring costs amounted to $118 million, reflecting the cumulative effect of restructuring plans implemented since the beginning of the year.\n\n5. **Earnings Implications**: The restructuring costs have been recognized in the period they occur, reducing the operating income and thus impacting the net income and diluted earnings per share figures.\n\nIn summary, the restructuring liability serves as an indicator of the ongoing commitment to address the adverse effects of the conflict on the company's operations, including personnel adjustments and asset management strategies aimed at mitigating potential losses and maintaining operational efficiency.",
+            "overlap_score": 0.8
+        },
+        {
+            "doc_name": "AMCOR_2023Q4_EARNINGS",
+            "question": "What Was AMCOR's Adjusted Non GAAP EBITDA for FY 2023",
+            "expected_answer": "AMCOR's Adj. EBITDA was $2,018mn in FY 2023",
+            "evidence_text": null,
+            "generated_answer": "Based on the information provided in the given text, AMCor's Adjusted Non-GAAP EBITDA for FY 2023 is $1,608 million.",
+            "overlap_score": 0.625
+        },
+        {
+            "doc_name": "AMCOR_2023Q4_EARNINGS",
+            "question": "How much was the Real change in Sales for AMCOR in FY 2023 vs FY 2022, if we exclude the impact of FX movement, passthrough costs and one-off items?",
+            "expected_answer": "The Real Growth was flat in FY 2023 vs FY 2022.",
+            "evidence_text": null,
+            "generated_answer": "The real change in sales for AMCOR in FY 2023 compared to FY 2022, excluding the impact of foreign exchange movements, pass-through costs, and one-time items, was -3%, according to the text provided.",
+            "overlap_score": 0.6
+        },
+        {
+            "doc_name": "AMD_2015_10K",
+            "question": "Answer the following question as if you are an equity research analyst and have lost internet connection so you do not have access to financial metric providers. According to the details clearly outlined within the P&L statement and the statement of cash flows, what is the FY2015 depreciation and amortization (D&A from cash flow statement) % margin for AMD?",
+            "expected_answer": "4.2%",
+            "evidence_text": null,
+            "generated_answer": "No relevant context could be found in the database for this specific document.",
+            "overlap_score": 0.0
+        },
+        {
+            "doc_name": "AMD_2022_10K",
+            "question": "Does AMD have a reasonably healthy liquidity profile based on its quick ratio for FY22? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+            "expected_answer": "Yes. The quick ratio is 1.57, calculated as (cash and cash equivalents+Short term investments+Accounts receivable, net+receivables from related parties)/ (current liabilities).",
+            "evidence_text": null,
+            "generated_answer": "Based on the provided text, AMD has a reasonable liquidity profile for FY22. The text mentions several indicators suggesting adequate liquidity:\n\n- \"AMD’s cash, cash equivalents and short-term investment balances together with the availability under that certain revolving credit facility (the Revolving Credit Agreement), made available to AMD and certain of its subsidiaries, our commercial paper program, and our cash flows from operations will be sufficient to fund AMD’s operations including capital expenditures and purchase commitments over the next 12 months and beyond.\"\n\nThis statement indicates that AMD has access to sufficient funds through various sources to cover its operational needs.\n\nAdditionally, the text notes that \"all unbilled accounts receivables are expected to be billed and collected within 12 months.\" This suggests strong collections processes and timely billing practices.\n\nThe mention of \"anticipated ongoing and increased costs related to enhancing and implementing information security controls\" implies that AMD is investing in necessary infrastructure but doesn't directly address liquidity concerns.\n\nWhile the quick ratio isn't mentioned specifically, the overall description of AMD's financial health focuses on its ability to meet its short-term obligations without relying heavily on long-term debt or equity. Therefore, it can be inferred that AMD likely maintains a relatively healthy liquidity position based on these factors.",
+            "overlap_score": 0.38095238095238093
+        },
+        {
+            "doc_name": "AMD_2022_10K",
+            "question": "What are the major products and services that AMD sells as of FY22?",
+            "expected_answer": "AMD sells server microprocessors (CPUs) and graphics processing units (GPUs), data processing units (DPUs), Field Programmable Gate Arrays (FPGAs), and Adaptive System-on-Chip (SoC) products for data centers; CPUs, accelerated processing units (APUs) that integrate CPUs and GPUs, and chipsets for desktop and notebook personal computers; discrete GPUs, and semi-custom SoC products and development services; and embedded CPUs, GPUs, APUs, FPGAs, and Adaptive SoC products.",
+            "evidence_text": null,
+            "generated_answer": "According to the provided text, some of the major products and services that AMD sells as of FY22 include:\n\n- x86 microprocessors (CPUs)\n- Graphics processing units (GPUs)\n- Accelerated Processing Units (APUs)\n- Chipsets\n- Data Center and Professional GPUs\n- Embedded processors\n- Semi-custom System-on-Chips (SoCs)\n- Microprocessor and SoC development services and technology\n- Data processing units (DPUs)\n- Field Programmable Gate Arrays (FPGAs)\n- Adaptive SoC products\n- AMD Ryzen, AMD Ryzen PRO, Ryzen Threadripper, Ryzen Threadripper PRO, AMD Athlon, AMD Athlon PRO, and AMD PRO A-Series processor brands\n- AMD Radeon graphics and AMD Em\n- Client processors\n- Consumer graphics market products\n- AMD CDNA, AMD Instinct, AMD RDNA, Alveo, Artix, Athlon, CoolRunner, EPYC, FidelityFX, FirePro, FreeSync, Geode, InfinityFabric, Kinex, Pensando, Radeon, Radeon Instinct, ROCm, Ryzen, Spartan, Threadripper, UltraScale, UltraScale+, V-Cache, Versal, Virtex, Vitis, Vivado, Xilinx, Zynq, and combinations thereof trademarks",
+            "overlap_score": 0.5227272727272727
+        },
+        {
+            "doc_name": "AMD_2022_10K",
+            "question": "What drove revenue change as of the FY22 for AMD?",
+            "expected_answer": "In 2022, AMD reported Higher sales of their EPYC server processors, higher semi-custom product sales, and the inclusion of Xilinx embedded product sales",
+            "evidence_text": null,
+            "generated_answer": "Revenue decreased as of FY22 due to a 24% decrease in unit shipment, partially offset by a 19% increase in average selling price.",
+            "overlap_score": 0.10526315789473684
+        },
+        {
+            "doc_name": "AMD_2022_10K",
+            "question": "What drove operating margin change as of the FY22 for AMD? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+            "expected_answer": "The decrease in AMD's operating income was primarily driven by amortization of intangible assets associated with the Xilinx acquisition",
+            "evidence_text": null,
+            "generated_answer": "Based on the given text, the main driver of the operating margin change for AMD in FY22 was:\n\n- Lower revenue\n- Higher operating expenses\n\nSpecifically, it states \"The decrease in operating income was primarily driven by lower revenue and higher operating expenses.\"",
+            "overlap_score": 0.5555555555555556
+        }
+    ]
+}
